@@ -1,15 +1,58 @@
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import _extends from 'babel-runtime/helpers/extends';
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _inherits from 'babel-runtime/helpers/inherits';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Popover from 'material-ui/Popover/Popover';
-import IconOption from './IconOption.component';
-import CurrentIcon from './CurrentIcon.component';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Popover = require('material-ui/Popover/Popover');
+
+var _Popover2 = _interopRequireDefault(_Popover);
+
+var _IconOption = require('./IconOption.component');
+
+var _IconOption2 = _interopRequireDefault(_IconOption);
+
+var _CurrentIcon = require('./CurrentIcon.component');
+
+var _CurrentIcon2 = _interopRequireDefault(_CurrentIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO: Move to d2-utilizr?
 function trimSlashesFromEnd(string) {
@@ -26,18 +69,18 @@ function getImgSrc(imgPath, imgFileName) {
 }
 
 var IconPicker = function (_Component) {
-    _inherits(IconPicker, _Component);
+    (0, _inherits3.default)(IconPicker, _Component);
 
     function IconPicker() {
         var _ref;
 
-        _classCallCheck(this, IconPicker);
+        (0, _classCallCheck3.default)(this, IconPicker);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        var _this = _possibleConstructorReturn(this, (_ref = IconPicker.__proto__ || _Object$getPrototypeOf(IconPicker)).call.apply(_ref, [this].concat(args)));
+        var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = IconPicker.__proto__ || (0, _getPrototypeOf2.default)(IconPicker)).call.apply(_ref, [this].concat(args)));
 
         _this.state = {
             showOptions: false
@@ -49,7 +92,7 @@ var IconPicker = function (_Component) {
         return _this;
     }
 
-    _createClass(IconPicker, [{
+    (0, _createClass3.default)(IconPicker, [{
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -78,25 +121,25 @@ var IconPicker = function (_Component) {
                     imgSrc: [trimSlashesFromEnd(_this2.props.imgPath), option].join('/')
                 };
 
-                return React.createElement(IconOption, _extends({ key: index }, optionProps, { onIconClicked: _this2.onIconSelected }));
+                return _react2.default.createElement(_IconOption2.default, (0, _extends3.default)({ key: index }, optionProps, { onIconClicked: _this2.onIconSelected }));
             });
 
-            return React.createElement(
+            return _react2.default.createElement(
                 'div',
                 null,
-                React.createElement(
+                _react2.default.createElement(
                     'div',
                     { className: 'icon-picker__label-text', style: styles.iconPickerLabel },
                     this.props.labelText
                 ),
-                React.createElement(CurrentIcon, { imgSrc: getImgSrc(this.props.imgPath, this.props.value), onIconClicked: this.currentIconClicked }),
-                React.createElement(
-                    Popover,
+                _react2.default.createElement(_CurrentIcon2.default, { imgSrc: getImgSrc(this.props.imgPath, this.props.value), onIconClicked: this.currentIconClicked }),
+                _react2.default.createElement(
+                    _Popover2.default,
                     {
                         open: this.state.showOptions,
                         anchorEl: this.state.anchorEl,
                         onRequestClose: this.closeOptions,
-                        style: _Object$assign(styles.iconPopover, this.props.iconPopoverStyle)
+                        style: (0, _assign2.default)(styles.iconPopover, this.props.iconPopoverStyle)
                     },
                     optionElements
                 )
@@ -129,17 +172,16 @@ var IconPicker = function (_Component) {
             });
         }
     }]);
-
     return IconPicker;
-}(Component);
+}(_react.Component);
 
 IconPicker.propTypes = {
-    imgPath: PropTypes.string,
-    options: PropTypes.array,
-    labelText: PropTypes.string,
-    onChange: PropTypes.func,
-    value: PropTypes.any,
-    iconPopoverStyle: PropTypes.object
+    imgPath: _propTypes2.default.string,
+    options: _propTypes2.default.array,
+    labelText: _propTypes2.default.string,
+    onChange: _propTypes2.default.func,
+    value: _propTypes2.default.any,
+    iconPopoverStyle: _propTypes2.default.object
 };
 
 IconPicker.defaultProps = {
@@ -149,4 +191,4 @@ IconPicker.defaultProps = {
     onChange: function onChange() {}
 };
 
-export default IconPicker;
+exports.default = IconPicker;
